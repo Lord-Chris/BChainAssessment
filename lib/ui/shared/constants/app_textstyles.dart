@@ -158,14 +158,18 @@ class AppTextStyles {
   //   fontWeight: FontWeight.bold,
   // );
 
-  // // Default Color -
-  // static final bold18 = TextStyle(
-  //   fontSize: 18.spMin,
-  //   fontWeight: FontWeight.bold,
-  // );
+  static final bold18 = TextStyle(
+    fontSize: 18.spMin,
+    fontWeight: FontWeight.bold,
+  );
 
-  // static final bold28 = TextStyle(
-  //   fontSize: 28.spMin,
-  //   fontWeight: FontWeight.bold,
-  // );
+  static final bold24 = TextStyle(
+    fontSize: 24.spMin,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final bold32 = TextStyle(
+    fontSize: 32.spMin,
+    fontWeight: FontWeight.bold,
+  );
 }

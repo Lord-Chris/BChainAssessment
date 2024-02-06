@@ -76,7 +76,8 @@ class LoginView extends StatelessWidget {
                   label: 'Continue',
                   isBusy: viewModel.isBusy,
                   onPressed: () {
-                    if (!formKey.currentState!.validate()) return;
+                    // if (!formKey.currentState!.validate()) return;
+                    viewModel.login();
                   },
                 ),
               ),

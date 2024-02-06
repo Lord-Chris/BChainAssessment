@@ -12,8 +12,10 @@ class AppTheme {
     useMaterial3: true,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
-      elevation: 0.5,
+      centerTitle: true,
+      elevation: 0,
       iconTheme: IconThemeData(size: 17.sp),
+      surfaceTintColor: AppColors.white,
     ),
     expansionTileTheme: const ExpansionTileThemeData(
       tilePadding: EdgeInsets.symmetric(vertical: 4),
