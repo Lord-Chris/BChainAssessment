@@ -24,7 +24,7 @@ class AppButton extends StatelessWidget {
     this.width,
     this.height,
     this.customChild,
-    this.buttonColor = AppColors.primary600,
+    this.buttonColor = AppColors.primary70,
     this.labelColor = AppColors.white,
     this.disabledColor,
     this.borderColor,

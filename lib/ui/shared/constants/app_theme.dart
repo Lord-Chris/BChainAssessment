@@ -6,7 +6,7 @@ import '_constants.dart';
 class AppTheme {
   static final theme = ThemeData(
     primarySwatch: Colors.indigo,
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary600),
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary70),
     fontFamily: AppTextStyles.ibmPlexSans,
     scaffoldBackgroundColor: AppColors.white,
     useMaterial3: true,
