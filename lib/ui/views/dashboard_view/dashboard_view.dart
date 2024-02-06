@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../shared/constants/_constants.dart';
@@ -19,23 +20,27 @@ class DashboardView extends StatelessWidget {
       builder: (context, viewModel, child) {
         return Scaffold(
           appBar: AppBar(
-            leading: const Icon(Icons.fit_screen_sharp),
+            leadingWidth: 45.r,
+            leading: Align(
+              alignment: Alignment.centerRight,
+              child: SvgPicture.asset(AppSvgAssets.scan),
+            ),
             title: Text(
               'Explore',
               style: AppTextStyles.bold18,
             ),
             actions: [
               IconButton(
-                icon: const Icon(Icons.search),
+                icon: SvgPicture.asset(AppSvgAssets.search),
                 onPressed: () {},
               ),
               Badge(
-                offset: const Offset(2, -2),
+                offset: const Offset(-6, 6),
                 largeSize: 10,
-                padding: REdgeInsets.all(10),
-                smallSize: 10,
+                isLabelVisible: true,
+                label: const Text(''),
                 child: IconButton(
-                  icon: const Icon(Icons.notifications),
+                  icon: SvgPicture.asset(AppSvgAssets.notification),
                   onPressed: () {},
                 ),
               ),

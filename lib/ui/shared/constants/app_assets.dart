@@ -1,12 +1,9 @@
 class AppSvgAssets {
   static const _prefix = 'assets/svgs';
 
-  static const raydaIcon = '$_prefix/rayda_icon.svg';
-  static const raydaText = '$_prefix/rayda_text.svg';
-  static const noInternet = '$_prefix/no_internet.svg';
-  static const success = '$_prefix/success_icon.svg';
-  static const deviceLocked = '$_prefix/device_locked.svg';
-  static const deviceUnlocked = '$_prefix/device_unlocked.svg';
+  static const notification = '$_prefix/notification.svg';
+  static const scan = '$_prefix/scan.svg';
+  static const search = '$_prefix/search.svg';
 }
 
 class AppImgAssets {
