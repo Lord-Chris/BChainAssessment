@@ -9,5 +9,5 @@ class AppSvgAssets {
 class AppImgAssets {
   static const _prefix = 'assets/images';
 
-  static const locationAlways = '$_prefix/location_always.png';
+  static const loader = '$_prefix/loader.png';
 }

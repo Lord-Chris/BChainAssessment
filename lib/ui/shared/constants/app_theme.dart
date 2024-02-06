@@ -17,6 +17,9 @@ class AppTheme {
       iconTheme: IconThemeData(size: 17.sp),
       surfaceTintColor: AppColors.white,
     ),
+    dividerTheme: const DividerThemeData(
+      color: AppColors.gray20,
+    ),
     expansionTileTheme: const ExpansionTileThemeData(
       tilePadding: EdgeInsets.symmetric(vertical: 4),
     ),

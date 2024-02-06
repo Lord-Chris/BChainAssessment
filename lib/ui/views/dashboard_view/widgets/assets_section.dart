@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:stacked/stacked.dart';
 
 import '../../../shared/constants/_constants.dart';
+import '../dashboard_viewmodel.dart';
 
-class AssetsSection extends StatelessWidget {
+class AssetsSection extends ViewModelWidget<DashboardViewModel> {
   const AssetsSection({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, DashboardViewModel viewModel) {
     return Padding(
       padding: REdgeInsets.fromLTRB(16, 10, 16, 10),
       child: Column(
@@ -22,10 +24,17 @@ class AssetsSection extends StatelessWidget {
                   style: AppTextStyles.semiBold16,
                 ),
               ),
-              Text(
-                'See all',
-                style: AppTextStyles.semiBold14.copyWith(
-                  color: AppColors.primary70,
+              TextButton(
+                onPressed: viewModel.goToTransactionsView,
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.centerRight,
+                ),
+                child: Text(
+                  'See all',
+                  style: AppTextStyles.semiBold14.copyWith(
+                    color: AppColors.primary70,
+                  ),
                 ),
               ),
             ],
