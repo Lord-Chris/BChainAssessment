@@ -75,12 +75,11 @@ class AppTextField extends StatelessWidget {
         if (label != null)
           Text(
             label!,
-            style: AppTextStyles.medium14.copyWith(
-              color: AppColors.black,
+            style: AppTextStyles.regular14.copyWith(
+              color: AppColors.gray700,
             ),
           ),
         if (label != null) Spacing.vertExtraTiny(),
-        if (label != null) Spacing.vertTiny(),
         TextFormField(
           enabled: enabled,
           controller: controller,
@@ -152,23 +151,25 @@ class AppTextField extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 13.w),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: AppColors.gray300),
+          borderSide: const BorderSide(color: AppColors.transparent),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: AppColors.gray300),
+          borderSide: const BorderSide(color: AppColors.transparent),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: AppColors.gray300),
+          borderSide: const BorderSide(color: AppColors.transparent),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: AppColors.gray300),
+          borderSide: const BorderSide(color: AppColors.transparent),
         ),
         filled: true,
-        fillColor: AppColors.white,
-        hintStyle: AppTextStyles.regular16,
+        fillColor: AppColors.gray200,
+        hintStyle: AppTextStyles.regular16.copyWith(
+          color: AppColors.black.withOpacity(.32),
+        ),
       );
 }
 

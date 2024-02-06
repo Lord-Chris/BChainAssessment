@@ -138,8 +138,8 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
-  static final semiBold24 = TextStyle(
-    fontSize: 24.spMin,
+  static final semiBold20 = TextStyle(
+    fontSize: 20.spMin,
     fontWeight: FontWeight.w600,
   );
 
