@@ -48,7 +48,7 @@ class LoginView extends StatelessWidget {
                       AppTextField(
                         label: 'Password',
                         hint: 'Enter password',
-                        obscureText: true,
+                        obscureText: !viewModel.isPasswordVisible,
                         maxLines: 1,
                         keyboardType: TextInputType.visiblePassword,
                         validator: context.validatePassword,
@@ -57,6 +57,7 @@ class LoginView extends StatelessWidget {
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                             alignment: Alignment.centerRight,
+                            minimumSize: const Size(0, 0),
                           ),
                           child: Text(
                             viewModel.isPasswordVisible ? 'HIDE' : 'SHOW',
@@ -76,7 +77,7 @@ class LoginView extends StatelessWidget {
                   label: 'Continue',
                   isBusy: viewModel.isBusy,
                   onPressed: () {
-                    // if (!formKey.currentState!.validate()) return;
+                    if (!formKey.currentState!.validate()) return;
                     viewModel.login();
                   },
                 ),

@@ -1,16 +1,18 @@
-# bchain_assessment
+# BChainAssessment
+BChainAssessment is a sample crypto wallet UI app built with Flutter. It is a simple app that allows users to view their crypto wallet balance and transaction history. Built for Busha Assessment.
 
-A new Flutter project.
+## Features
+- **Animations**: Use of *RotationTransition* to animate loading widget.
+- **Responsive Design**: The app is responsive across screen sizes.
+- **Memory Leak Management**: The app makes use of *flutter_hooks* to dispose of resources when they are no longer needed e.g controllers.
 
-## Getting Started
+## Mobile App
+BChainAssessment app is built using the following technologies:
 
-This project is a starting point for a Flutter application.
+- [Flutter](https://flutter.dev/), a cross-platform mobile development framework by Google.
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks), a Flutter package for hooks.
 
-A few resources to get you started if this is your first Flutter project:
+**BChainAssessment can be previewed on iOS and Android.*
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Video Demo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

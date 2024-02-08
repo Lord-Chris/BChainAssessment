@@ -13,7 +13,10 @@ class LoginViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void login() {
+  Future<void> login() async {
+    setBusy(true);
+    await Future.delayed(const Duration(seconds: 2));
+    setBusy(false);
     _navigationService.navigateTo(Routes.dashboardView);
   }
 }
