@@ -55,7 +55,11 @@ class DashboardViewModel extends BaseViewModel {
         ),
       ];
 
-  void goToTransactionsView() {
-    _navigationService.navigateTo(Routes.transactionsView);
+  void goToTransactionsView(Asset asset) {
+    if (asset.symbol != 'BTC' && asset.symbol != 'XTZ') return;
+    _navigationService.navigateTo(
+      Routes.transactionsView,
+      arguments: TransactionsViewArguments(asset: asset),
+    );
   }
 }

@@ -5,14 +5,16 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:bchain_assessment/models/_models.dart' as _i6;
 import 'package:bchain_assessment/ui/views/dashboard_view/dashboard_view.dart'
     as _i3;
 import 'package:bchain_assessment/ui/views/login_view/login_view.dart' as _i2;
 import 'package:bchain_assessment/ui/views/transactions_view/transactions_view.dart'
     as _i4;
+import 'package:flutter/material.dart' as _i5;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i5;
+import 'package:stacked_services/stacked_services.dart' as _i7;
 
 class Routes {
   static const loginView = '/';
@@ -58,8 +60,10 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i4.TransactionsView: (data) {
+      final args = data.getArgs<TransactionsViewArguments>(nullOk: false);
       return _i1.buildAdaptivePageRoute<dynamic>(
-        builder: (context) => const _i4.TransactionsView(),
+        builder: (context) =>
+            _i4.TransactionsView(key: args.key, asset: args.asset),
         settings: data,
       );
     },
@@ -72,7 +76,34 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i5.NavigationService {
+class TransactionsViewArguments {
+  const TransactionsViewArguments({
+    this.key,
+    required this.asset,
+  });
+
+  final _i5.Key? key;
+
+  final _i6.Asset asset;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "asset": "$asset"}';
+  }
+
+  @override
+  bool operator ==(covariant TransactionsViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.asset == asset;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ asset.hashCode;
+  }
+}
+
+extension NavigatorStateExtension on _i7.NavigationService {
   Future<dynamic> navigateToLoginView([
     int? routerId,
     bool preventDuplicates = true,
@@ -101,14 +132,17 @@ extension NavigatorStateExtension on _i5.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToTransactionsView([
+  Future<dynamic> navigateToTransactionsView({
+    _i5.Key? key,
+    required _i6.Asset asset,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.transactionsView,
+        arguments: TransactionsViewArguments(key: key, asset: asset),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -143,14 +177,17 @@ extension NavigatorStateExtension on _i5.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithTransactionsView([
+  Future<dynamic> replaceWithTransactionsView({
+    _i5.Key? key,
+    required _i6.Asset asset,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.transactionsView,
+        arguments: TransactionsViewArguments(key: key, asset: asset),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

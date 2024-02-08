@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../models/_models.dart';
 import '../../shared/components/_components.dart';
 import '../../shared/constants/app_colors.dart';
 import '../../shared/constants/app_textstyles.dart';
@@ -9,7 +10,11 @@ import '../../shared/constants/spacing.dart';
 import 'transactions_viewmodel.dart';
 
 class TransactionsView extends StatelessWidget {
-  const TransactionsView({super.key});
+  final Asset asset;
+  const TransactionsView({
+    Key? key,
+    required this.asset,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,7 @@ class TransactionsView extends StatelessWidget {
                   Spacing.vertExtraMedium(),
                   Spacing.vertSmall(),
                   Text(
-                    'Fetching your {BTC} transactions',
+                    'Fetching your {${asset.symbol}} transactions',
                     style: AppTextStyles.regular18,
                   ),
                 ],
@@ -38,7 +43,7 @@ class TransactionsView extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'BTC transactions',
+              '${asset.symbol} transactions',
               style: AppTextStyles.semiBold16,
             ),
           ),
