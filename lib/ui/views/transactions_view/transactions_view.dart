@@ -15,6 +15,7 @@ class TransactionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TransactionsViewModel>.reactive(
       viewModelBuilder: () => TransactionsViewModel(),
+      onViewModelReady: (viewModel) => viewModel.init('BTC'),
       builder: (context, viewModel, child) {
         if (viewModel.isBusy) {
           return Material(
@@ -43,12 +44,13 @@ class TransactionsView extends StatelessWidget {
           ),
           body: ListView.separated(
             padding: REdgeInsets.fromLTRB(16, 0, 16, 24),
-            itemCount: 200,
+            itemCount: viewModel.transactions.length,
             separatorBuilder: (_, __) => Divider(
               height: 1,
               color: AppColors.black.withOpacity(.08),
             ),
             itemBuilder: (context, index) {
+              final transaction = viewModel.transactions[index];
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -57,7 +59,7 @@ class TransactionsView extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          '0000000000000bae09a7a393a8acded75aa67e46cb81f7acaa5ad94f9eacd103',
+                          transaction.hash,
                           style: AppTextStyles.regular14,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -72,7 +74,7 @@ class TransactionsView extends StatelessWidget {
                   ),
                   Spacing.vertSmall(),
                   Text(
-                    '2019-08-24 • 15:43',
+                    transaction.parsedTime,
                     style: AppTextStyles.regular14.copyWith(
                       color: AppColors.black.withOpacity(.56),
                     ),

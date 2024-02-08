@@ -24,7 +24,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<ApiResponse> delete(String url,
+  Future<Map<String, dynamic>> delete(String url,
       {dynamic body, Map<String, String>? headers}) async {
     try {
       if (headers != null) {
@@ -36,7 +36,7 @@ class NetworkService extends INetworkService {
         options: Options(headers: _headers),
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
-        return ApiResponse.fromMap(res.data);
+        return res.data;
       }
       throw Failure(message: res.statusMessage!);
     } on DioException catch (e) {
@@ -47,7 +47,8 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<ApiResponse> get(String url, {Map<String, String>? headers}) async {
+  Future<Map<String, dynamic>> get(String url,
+      {Map<String, String>? headers}) async {
     try {
       if (headers != null) {
         _headers.addAll(headers);
@@ -57,7 +58,7 @@ class NetworkService extends INetworkService {
         options: Options(headers: _headers),
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
-        return ApiResponse.fromMap(res.data);
+        return res.data;
       }
       throw Failure(message: res.statusMessage!);
     } on DioException catch (e) {
@@ -68,7 +69,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<ApiResponse> put(String url,
+  Future<Map<String, dynamic>> put(String url,
       {dynamic body, Map<String, String>? headers}) async {
     try {
       if (headers != null) {
@@ -80,7 +81,7 @@ class NetworkService extends INetworkService {
         options: Options(headers: _headers),
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
-        return ApiResponse.fromMap(res.data);
+        return res.data;
       }
       throw Failure(message: res.statusMessage!);
     } on DioException catch (e) {
@@ -91,7 +92,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<ApiResponse> post(String url,
+  Future<Map<String, dynamic>> post(String url,
       {dynamic body, Map<String, String>? headers}) async {
     try {
       if (headers != null) {
@@ -103,7 +104,7 @@ class NetworkService extends INetworkService {
         options: Options(headers: _headers),
       );
       if (res.statusCode == 200 || res.statusCode == 201) {
-        return ApiResponse.fromMap(res.data);
+        return res.data;
       }
       throw Failure(message: res.statusMessage!);
     } on DioException catch (e) {

@@ -10,6 +10,8 @@ import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
+import '../../services/api_services/transactions_service/i_transactions_service.dart';
+import '../../services/api_services/transactions_service/transactions_service.dart';
 import '../../services/core_services/local_storage_service/i_local_storage_service.dart';
 import '../../services/core_services/local_storage_service/local_storage_service.dart';
 import '../../services/core_services/network_service/i_network_service.dart';
@@ -31,4 +33,6 @@ Future<void> setupLocator({
   locator.registerLazySingleton<INetworkService>(() => NetworkService());
   locator
       .registerLazySingleton<ILocalStorageService>(() => LocalStorageService());
+  locator
+      .registerLazySingleton<ITransactionsService>(() => TransactionsService());
 }

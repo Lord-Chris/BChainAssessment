@@ -27,6 +27,7 @@ import '../../ui/views/transactions_view/transactions_view.dart';
     LazySingleton(classType: LocalStorageService, asType: ILocalStorageService),
 
     /// Api Services
+    LazySingleton(classType: TransactionsService, asType: ITransactionsService),
   ],
   logger: StackedLogger(),
 )

@@ -1,24 +1,22 @@
-import '../../../models/_models.dart';
-
 abstract class INetworkService {
-  Future<ApiResponse> get(
+  Future<Map<String, dynamic>> get(
     String url, {
     Map<String, String>? headers,
   });
 
-  Future<ApiResponse> post(
-    String url, {
-    dynamic body,
-    Map<String, String>? headers,
-  });
-
-  Future<ApiResponse> put(
+  Future<Map<String, dynamic>> post(
     String url, {
     dynamic body,
     Map<String, String>? headers,
   });
 
-  Future<ApiResponse> delete(
+  Future<Map<String, dynamic>> put(
+    String url, {
+    dynamic body,
+    Map<String, String>? headers,
+  });
+
+  Future<Map<String, dynamic>> delete(
     String url, {
     dynamic body,
     Map<String, String>? headers,
