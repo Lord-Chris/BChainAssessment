@@ -7,21 +7,20 @@ import 'i_network_service.dart';
 import 'interceptors/network_logger.dart';
 
 class NetworkService extends INetworkService {
-  Dio _dio = Dio();
+  final Dio _dio;
 
   final _headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   };
 
-  NetworkService() {
-    _dio = Dio();
-    _dio.options.receiveTimeout = const Duration(seconds: 60);
-    _dio.options.sendTimeout = const Duration(seconds: 60);
-    _dio.interceptors.addAll([
-      NetworkLoggerInterceptor(),
-    ]);
-  }
+  NetworkService({Dio? dio})
+      : _dio = dio ?? Dio()
+          ..options.receiveTimeout = const Duration(seconds: 60)
+          ..options.sendTimeout = const Duration(seconds: 60)
+          ..interceptors.addAll([
+            NetworkLoggerInterceptor(),
+          ]);
 
   @override
   Future<dynamic> delete(String url,
