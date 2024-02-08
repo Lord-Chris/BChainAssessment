@@ -38,7 +38,7 @@ class BalanceWidget extends StatelessWidget {
               style: AppTextStyles.bold24,
               children: [
                 TextSpan(
-                  text: '1,000',
+                  text: '5,000',
                   style: AppTextStyles.bold32.copyWith(
                     color: AppColors.black,
                   ),

@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.theme,
           navigatorKey: StackedService.navigatorKey,
           onGenerateRoute: StackedRouter().onGenerateRoute,
+          debugShowCheckedModeBanner: false,
           navigatorObservers: [
             StackedService.routeObserver,
           ],

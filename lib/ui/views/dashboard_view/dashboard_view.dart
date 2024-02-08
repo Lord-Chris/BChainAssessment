@@ -35,8 +35,8 @@ class DashboardView extends StatelessWidget {
                 onPressed: () {},
               ),
               Badge(
-                offset: const Offset(-6, 6),
-                largeSize: 10,
+                offset: const Offset(-12, 12),
+                largeSize: 7,
                 isLabelVisible: true,
                 label: const Text(''),
                 child: IconButton(

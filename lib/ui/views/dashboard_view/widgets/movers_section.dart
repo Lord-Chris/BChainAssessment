@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:stacked/stacked.dart';
 
 import '../../../shared/constants/_constants.dart';
+import '../dashboard_viewmodel.dart';
 
-class MoversSection extends StatelessWidget {
+class MoversSection extends ViewModelWidget<DashboardViewModel> {
   const MoversSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, DashboardViewModel viewModel) {
     return Column(
       children: [
         Padding(
@@ -32,12 +35,13 @@ class MoversSection extends StatelessWidget {
         SizedBox(
           height: 127.h,
           child: ListView.separated(
-            itemCount: 3,
+            itemCount: viewModel.topMovers.length,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             padding: REdgeInsets.symmetric(horizontal: 16),
             separatorBuilder: (_, __) => Spacing.horizSmall(),
             itemBuilder: (context, index) {
+              final asset = viewModel.topMovers[index];
               return Container(
                 width: 150.r,
                 padding: REdgeInsets.all(16),
@@ -52,27 +56,37 @@ class MoversSection extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 20.r,
+                      backgroundImage: asset.icon.endsWith('svg')
+                          ? null
+                          : AssetImage(asset.icon),
+                      child: asset.icon.endsWith('svg')
+                          ? SvgPicture.asset(asset.icon)
+                          : null,
                     ),
                     const Spacer(),
                     Text(
-                      'Bitcoin',
+                      asset.name,
                       style: AppTextStyles.regular16,
                     ),
                     const Spacer(),
                     Row(
                       children: [
                         Transform.flip(
-                          flipY: true,
+                          flipY: asset.change.isNegative,
                           child: Icon(
                             Icons.arrow_outward,
                             size: 15.r,
-                            color: AppColors.error70,
+                            color: asset.change.isNegative
+                                ? AppColors.error70
+                                : AppColors.primary70,
                           ),
                         ),
                         Text(
-                          '1.76%',
+                          '${asset.change.abs().toStringAsFixed(2)}%',
                           style: AppTextStyles.regular14.copyWith(
-                            color: AppColors.error70,
+                            color: asset.change.isNegative
+                                ? AppColors.error70
+                                : AppColors.primary70,
                           ),
                         ),
                       ],

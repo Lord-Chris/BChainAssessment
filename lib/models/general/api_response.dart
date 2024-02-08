@@ -1,5 +1,3 @@
-import 'package:equatable/equatable.dart';
-
 // class ApiResponse<T> extends Equatable {
 //   final bool status;
 //   final String message;
