@@ -13,3 +13,11 @@ class Asset {
     required this.change,
   });
 }
+
+final mockAsset = Asset(
+  name: 'Bitcoin',
+  symbol: 'BTC',
+  icon: 'assets/icons/bitcoin.png',
+  price: 50000,
+  change: 0.05,
+);
