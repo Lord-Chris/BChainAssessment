@@ -21,7 +21,10 @@ class TransactionDetailView extends StatelessWidget {
       builder: (context, viewModel, child) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Transaction details'),
+            title: Text(
+              'Transaction details',
+              style: AppTextStyles.semiBold16,
+            ),
           ),
           body: ListView(
             padding: REdgeInsets.all(16),
