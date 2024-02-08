@@ -8,6 +8,7 @@ class AppSvgAssets {
   static const ethereum = '$_prefix/ethereum.svg';
   static const ethereum2 = '$_prefix/ethereum_2.svg';
   static const solana = '$_prefix/solana.svg';
+  static const link = '$_prefix/link.svg';
 }
 
 class AppImgAssets {

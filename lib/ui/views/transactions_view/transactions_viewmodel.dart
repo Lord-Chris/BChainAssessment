@@ -7,6 +7,7 @@ import '../../../services/_services.dart';
 class TransactionsViewModel extends BaseViewModel {
   final _log = getLogger('TransactionsViewModel');
   final _transactionsService = locator<ITransactionsService>();
+  final _navigationService = locator<NavigationService>();
 
   List<ITransactionModel> transactions = [];
 
@@ -23,5 +24,12 @@ class TransactionsViewModel extends BaseViewModel {
     } finally {
       setBusy(false);
     }
+  }
+
+  void navigateToTransactionDetail(ITransactionModel transaction) {
+    _navigationService.navigateTo(
+      Routes.transactionDetailView,
+      arguments: TransactionDetailViewArguments(transaction: transaction),
+    );
   }
 }

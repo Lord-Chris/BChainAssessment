@@ -20,7 +20,7 @@ class TransactionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TransactionsViewModel>.reactive(
       viewModelBuilder: () => TransactionsViewModel(),
-      onViewModelReady: (viewModel) => viewModel.init('XTZ'),
+      onViewModelReady: (viewModel) => viewModel.init(asset.symbol),
       builder: (context, viewModel, child) {
         if (viewModel.isBusy) {
           return Material(
@@ -56,36 +56,39 @@ class TransactionsView extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               final transaction = viewModel.transactions[index];
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Spacing.vertRegular(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          transaction.hash,
-                          style: AppTextStyles.regular14,
-                          overflow: TextOverflow.ellipsis,
+              return InkWell(
+                onTap: () => viewModel.navigateToTransactionDetail(transaction),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Spacing.vertRegular(),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            transaction.hash,
+                            style: AppTextStyles.regular14,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                      ),
-                      Spacing.horizRegular(),
-                      Icon(
-                        Icons.chevron_right,
-                        size: 24.r,
-                        color: AppColors.gray20,
-                      ),
-                    ],
-                  ),
-                  Spacing.vertSmall(),
-                  Text(
-                    transaction.parsedTime,
-                    style: AppTextStyles.regular14.copyWith(
-                      color: AppColors.black.withOpacity(.56),
+                        Spacing.horizRegular(),
+                        Icon(
+                          Icons.chevron_right,
+                          size: 24.r,
+                          color: AppColors.gray20,
+                        ),
+                      ],
                     ),
-                  ),
-                  Spacing.vertRegular(),
-                ],
+                    Spacing.vertSmall(),
+                    Text(
+                      transaction.parsedTime,
+                      style: AppTextStyles.regular14.copyWith(
+                        color: AppColors.black.withOpacity(.56),
+                      ),
+                    ),
+                    Spacing.vertRegular(),
+                  ],
+                ),
               );
             },
           ),
