@@ -6,9 +6,13 @@ import 'i_local_storage_service.dart';
 
 class LocalStorageService extends ILocalStorageService {
   final _log = getLogger('LocalStorageService');
-  final _storage = const FlutterSecureStorage(
-    aOptions: AndroidOptions(encryptedSharedPreferences: true),
-  );
+  final FlutterSecureStorage _storage;
+
+  LocalStorageService({FlutterSecureStorage? storage})
+      : _storage = storage ??
+            const FlutterSecureStorage(
+              aOptions: AndroidOptions(encryptedSharedPreferences: true),
+            );
 
   @override
   Future<String?> secureRead(String key) async {
