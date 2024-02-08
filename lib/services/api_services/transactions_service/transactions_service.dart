@@ -16,9 +16,7 @@ class TransactionsService extends ITransactionsService {
       return (res['tx'] as List).map((tx) => BTCModel.fromMap(tx)).toList();
     } else {
       final res = await _networkService.get(APIConstants.xtzLatestBlock());
-      return (res['transactions'] as List)
-          .map((tx) => XTZModel.fromMap(tx))
-          .toList();
+      return (res as List).map((tx) => XTZModel.fromMap(tx)).toList();
     }
   }
 }

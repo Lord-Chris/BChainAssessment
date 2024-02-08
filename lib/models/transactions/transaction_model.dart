@@ -57,10 +57,10 @@ class BTCModel extends ITransactionModel {
 
 /// TEZOS
 class XTZModel extends ITransactionModel {
-  final String level;
-  final String reward;
-  final String bonus;
-  final String fees;
+  final int level;
+  final int reward;
+  final int bonus;
+  final int fees;
 
   XTZModel({
     required super.hash,
@@ -75,7 +75,7 @@ class XTZModel extends ITransactionModel {
   Map<String, dynamic> toMap() {
     return {
       'hash': hash,
-      'time': time,
+      'timestamp': time,
       'level': level,
       'reward': reward,
       'bonus': bonus,
@@ -86,11 +86,11 @@ class XTZModel extends ITransactionModel {
   factory XTZModel.fromMap(Map<String, dynamic> map) {
     return XTZModel(
       hash: map['hash'] ?? '',
-      time: DateTime.parse(map['time'] ?? ''),
-      level: map['level'] ?? '',
-      reward: map['reward'] ?? '',
-      bonus: map['bonus'] ?? '',
-      fees: map['fees'] ?? '',
+      time: DateTime.parse(map['timestamp'] ?? ''),
+      level: map['level'] ?? 0,
+      reward: map['reward'] ?? 0,
+      bonus: map['bonus'] ?? 0,
+      fees: map['fees'] ?? 0,
     );
   }
 

@@ -15,7 +15,7 @@ class TransactionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TransactionsViewModel>.reactive(
       viewModelBuilder: () => TransactionsViewModel(),
-      onViewModelReady: (viewModel) => viewModel.init('BTC'),
+      onViewModelReady: (viewModel) => viewModel.init('XTZ'),
       builder: (context, viewModel, child) {
         if (viewModel.isBusy) {
           return Material(

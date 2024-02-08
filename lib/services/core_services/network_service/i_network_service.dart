@@ -1,22 +1,22 @@
 abstract class INetworkService {
-  Future<Map<String, dynamic>> get(
+  Future<dynamic> get(
     String url, {
     Map<String, String>? headers,
   });
 
-  Future<Map<String, dynamic>> post(
-    String url, {
-    dynamic body,
-    Map<String, String>? headers,
-  });
-
-  Future<Map<String, dynamic>> put(
+  Future<dynamic> post(
     String url, {
     dynamic body,
     Map<String, String>? headers,
   });
 
-  Future<Map<String, dynamic>> delete(
+  Future<dynamic> put(
+    String url, {
+    dynamic body,
+    Map<String, String>? headers,
+  });
+
+  Future<dynamic> delete(
     String url, {
     dynamic body,
     Map<String, String>? headers,

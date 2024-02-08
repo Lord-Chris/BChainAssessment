@@ -24,7 +24,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<Map<String, dynamic>> delete(String url,
+  Future<dynamic> delete(String url,
       {dynamic body, Map<String, String>? headers}) async {
     try {
       if (headers != null) {
@@ -47,8 +47,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<Map<String, dynamic>> get(String url,
-      {Map<String, String>? headers}) async {
+  Future<dynamic> get(String url, {Map<String, String>? headers}) async {
     try {
       if (headers != null) {
         _headers.addAll(headers);
@@ -69,7 +68,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<Map<String, dynamic>> put(String url,
+  Future<dynamic> put(String url,
       {dynamic body, Map<String, String>? headers}) async {
     try {
       if (headers != null) {
@@ -92,7 +91,7 @@ class NetworkService extends INetworkService {
   }
 
   @override
-  Future<Map<String, dynamic>> post(String url,
+  Future<dynamic> post(String url,
       {dynamic body, Map<String, String>? headers}) async {
     try {
       if (headers != null) {
