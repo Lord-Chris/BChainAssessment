@@ -99,3 +99,21 @@ class XTZModel extends ITransactionModel {
   factory XTZModel.fromJson(String source) =>
       XTZModel.fromMap(json.decode(source));
 }
+
+final mockBTCModel = BTCModel(
+  hash: 'hash',
+  time: DateTime.now(),
+  size: 0,
+  blockIndex: 0,
+  blockHeight: 0,
+  receivedTime: DateTime.now(),
+);
+
+final mockXTZModel = XTZModel(
+  hash: 'hash',
+  time: DateTime.now(),
+  level: 0,
+  reward: 0,
+  bonus: 0,
+  fees: 0,
+);

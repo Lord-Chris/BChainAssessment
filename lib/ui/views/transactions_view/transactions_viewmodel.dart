@@ -11,15 +11,15 @@ class TransactionsViewModel extends BaseViewModel {
 
   List<ITransactionModel> transactions = [];
 
-  void init(String type) {
-    _fetchTransactions(type);
+  Future<void> init(String type) async {
+    await _fetchTransactions(type);
   }
 
   Future<void> _fetchTransactions(String type) async {
     try {
       setBusy(true);
       transactions = await _transactionsService.getTransactions(type);
-    } on Exception catch (e) {
+    } on IFailure catch (e) {
       _log.e('Error fetching transactions', e);
     } finally {
       setBusy(false);
