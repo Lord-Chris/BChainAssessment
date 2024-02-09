@@ -15,4 +15,5 @@ BChainAssessment app is built using the following technologies:
 **BChainAssessment can be previewed on iOS and Android.*
 
 ## Video Demo
+![bchain_assessment](https://github.com/Lord-Chris/BChainAssessment/assets/58702861/09a5f61d-ae8a-40f9-86af-1e8082ec9d5a)
 
